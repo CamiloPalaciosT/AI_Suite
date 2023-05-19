@@ -12,6 +12,8 @@ header{
 nav{
     width: 100%;
     display: flex;
+    text-align: center;
+    align-items: center;
 }
 nav img{
     width: 100%;
@@ -22,11 +24,13 @@ nav img{
 }
 .navLinea div:first-child img {
     justify-content: start;
-    width: 70%;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
 }
 .navLinea div:not(:first-child) {
     align-items: center;
-    width: 4%;
+    width: 20%;
     padding-left: 3%;
 }
 .navLinea div {
@@ -43,6 +47,129 @@ nav img{
     display: flex;
     margin-right: 1%;
 }
+
+/*------------menu navegacion ------------*/
+.navegacion {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 6%;
+    top: 13%;
+    width: 75px;
+    background: white;
+    transition: 0.5s;
+    display: flex;
+    justify-content:end;
+    align-items: flex-end;
+    border-radius: 15px;
+    z-index: 2;
+    visibility: visible;   /* importante */
+  }
+  .navegacion.open {
+    width: 192px;
+    visibility: visible;
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+  }
+  /*---boton menu -----*/
+  /*-------boton menu-------*/
+  .navegacion ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 9%;
+    margin-left: 0%;
+  }
+  .navegacion ul li {
+    list-style: none;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    transition: 0.5s;
+  }
+  .navegacion ul li.active {
+    transform: translatey(20px);
+  }
+  .navegacion ul li.active a .icon {
+    color: #fff;
+    background: var(--clr);
+  }
+  .navegacion ul li.active a .icon::before {
+    opacity: 0.5;
+  }
+  .navegacion ul li.active a .text {
+    color: var(--clr);
+  }
+  .navegacion ul li a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    text-decoration: none;
+  }
+  .navegacion ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 55px;
+    height: 55px;
+    line-height: 60px;
+    transition: 0.5s;
+    border-radius: 10px;
+    font-size: 1.75em;
+    color: #222;
+  }
+  .navegacion ul li a .icon::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--clr);
+    filter: blur(8px);
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .navegacion ul li a .text {
+    position: relative;
+    padding: 0 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    color: #333;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+  }
+  .navegacion ul li a .icon {
+    opacity: 0;
+    visibility: hidden;
+
+  }
+  
+  .navegacion.open ul li.active {
+    transform: translateX(15px);
+  }
+  .navegacion.open ul li a .text {
+    visibility: visible;
+    opacity: 1;
+    
+  }
+  .navegacion.open ul li a .icon {
+    opacity: 1;
+    visibility: visible;
+
+  }
+/*-----------------ocultar y mostar menu--------------------*/
+    .navegacion{
+      opacity: 1;
+      pointer-events: auto;
+      visibility: hidden;
+    }
 /*--------MAIN(cuerpo del chat)----------*/
 main{
     width: 100%;
@@ -91,9 +218,9 @@ main{
     width: 100%;
     min-height: 100%
 } 
-.claseChat .active{
+.claseChat.active{
     font-size: 1.5em;
-    background: #f57905f3;
+    background: #f57905a2;
     text-align: left;
     display: flex;
     border-radius: 20px;
@@ -149,6 +276,53 @@ main{
 	position:relative;
 	top:1px;
 }
+/*-------- boton 3d  ------*/
+.scene {
+    width: 10em;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   .cube {
+    color: #ccc;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.85s cubic-bezier(.17,.67,.14,.93);
+    transform-style: preserve-3d;
+    transform-origin: 100% 50%;
+    width: 4em;
+    height: 4em;
+   }
+   
+   .cube:hover {
+    transform: rotateX(-90deg);
+   }
+   
+   .side {
+    box-sizing: border-box;
+    position: absolute;
+    display: inline-block;
+    height: 4em;
+    width: 10em;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 1.5em;
+    font-weight: bold;
+   }
+   
+   .top {
+    background: wheat;
+    color: #222229;
+    transform: rotateX(90deg) translate3d(0, 0, 2em);
+    box-shadow: inset 0 0 0 5px #fff;
+   }
+   
+   .front {
+    background: #222229;
+    color: #fff;
+    box-shadow: inset 0 0 0 5px #fff;
+    transform: translate3d(0, 0, 2em);
+   }
 
 
 /*---------- columna Chat ---------*/
@@ -166,9 +340,11 @@ main{
 }
 .ColumnaChat img{
     opacity: .1;
-    width: 30%;
+    width: 25%;
     z-index: 0;
     position: absolute;
+    right: 23%;
+    top: 20%;
 }
 /*------- Cuadro de Chat --------*/
 .zonaChat{
@@ -246,7 +422,7 @@ main{
     outline: none;
 }
 .btnEnviar{
-    background: #f57905c9;
+    background: #f57905;
     border-radius: 20px;
     font-size: 2em;
     border: none;
