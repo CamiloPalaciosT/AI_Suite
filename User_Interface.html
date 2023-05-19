@@ -27,27 +27,47 @@
         <main>
             <div class="columnaChatDisponibles">
             <details>
-                <summary class="claseChat"><img class="imagenChat" src="./img/chatgpt.webp" alt="" srcset="">ChatGPT</summary>
-                <button id="btnAgregarCodigo">Nuevo Chat</button>
+                <summary class="claseChat"><img class="imagenChat" src="./img/chatgpt.webp" alt="" srcset=""><div class="contenedorChat"><div class="nombreChat">ChatGPT</div><div id="contadorChatGPT" class="cantChats">0 chats</div></div></summary>
+                <a href="#" class="myButton" id="btnAgregarCodigo" id="miBoton">Nuevo Chat</a>
                 <div id="contenedorCodigo"></div>
             </details>
             <details>
-                <summary class="claseChat"><img class="imagenChat" src="./img/Bard.webp" alt="" srcset="">Bard</summary>
-                <button id="btnAgregarCodigoDos">Nuevo Chat</button>
+                <summary class="claseChat"><img class="imagenChat" src="./img/Bard.webp" alt="" srcset=""><div class="contenedorChat"><div class="nombreChat">Bard</div><div id="contadorBard"class="cantChats">0 chats</div></div></summary>
+                <a href="#" class="myButton" id="btnAgregarCodigoDos" id="miBoton">Nuevo Chat</a>
                 <div id="contenedorCodigoDos"></div>
             </details>
             <details>
-                <summary class="claseChat"><img class="imagenChat" src="./img/aichatbot.webp" alt="" srcset="">AIchat</summary>
-                <button id="btnAgregarCodigoTres">Nuevo Chat</button>
+                <summary class="claseChat"><img class="imagenChat" src="./img/aichatbot.webp" alt="" srcset=""><div class="contenedorChat"><div class="nombreChat">AIChat</div><div id="contadorAIChat"class="cantChats">0 chats</div></div></summary>
+                <a href="#" class="myButton" id="btnAgregarCodigoTres" id="miBoton">Nuevo Chat</a>
                 <div id="contenedorCodigoTres"></div>
             </details>
             <details>
-                <summary class="claseChat"><img class="imagenChat" src="./img/quizcat.webp" alt="" srcset="">QuizCat</summary>
-                <button id="btnAgregarCodigoCuatro">Nuevo Chat</button>
+                <summary class="claseChat"><img class="imagenChat" src="./img/quizcat.webp" alt="" srcset=""><div class="contenedorChat"><div class="nombreChat">QuizCat</div><div id="contadorQuizCat" class="cantChats">0 chats</div></div></summary>
+                <a href="#" class="myButton" id="btnAgregarCodigoCuatro" id="miBoton">Nuevo Chat</a>
                 <div id="contenedorCodigoCuatro"></div>
             </details>
+            <details>
+                <summary class="claseChat"><img class="imagenChat" src="./img/silky.webp" alt="" srcset=""><div class="contenedorChat"><div class="nombreChat">Silky</div><div id="contadorSilky"class="cantChats">0 chats</div></div></summary>
+                <a href="#" class="myButton" id="btnAgregarCodigoCinco" id="miBoton">Nuevo Chat</a>
+                <div id="contenedorCodigoCinco"></div>
+            </details>
             </div>
-            <div class="ColumnaChat"></div>
+            <div class="ColumnaChat">
+                <img src="./img/icono logo.webp" alt="" srcset="">
+                <div class="zonaChat">
+                    <div class="contenedorResultadoChat">
+                        <div id="resultadoChat">
+                            <div class="cuadroResultadoChat">
+                                bienvenido al chat con ChatGPT 4.0 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="zonaEscritura">
+                    <input type="text" class="cuadroEscritura" id="mensajeInput">
+                    <button id="Enviar" class="btnEnviar" onclick="enviarMensaje()"><ion-icon name="rocket-outline"></ion-icon></button>
+                </div>
+            </div>
         </main>
     </header>  
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
